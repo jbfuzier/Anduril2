@@ -124,6 +124,9 @@
 #define USE_SUNSET_TIMER
 
 
+// enable unlock to off mode (default Anduril 1 behavior), instead of turning on
+// #define USE_UNLOCK_TO_OFF
+
 ///// What to do when power is connected /////
 // factory reset function erases user's runtime configuration in eeprom
 #define USE_FACTORY_RESET
