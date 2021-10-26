@@ -73,6 +73,9 @@
 // add an optional setting to lock the light after being off for a while
 #define USE_AUTOLOCK
 
-
+// has two channels of independent LEDs
+#define USE_TINT_RAMPING
+// ... but it doesn't make sense to ramp between; only toggle
+#define TINT_RAMP_TOGGLE_ONLY
 
 #endif  // ifndef HANK_CFG
