@@ -14,9 +14,11 @@
 #undef USE_SIMPLE_UI
 #endif
 
-#ifdef USE_RAMP_CONFIG
-#undef USE_RAMP_CONFIG
-#endif
+// #ifdef USE_RAMP_CONFIG
+// #undef USE_RAMP_CONFIG
+// #endif
+
+#define DISABLE_RAMP_STYLE_TOOGLE
 
 #ifdef USE_MOMENTARY_MODE
 #undef USE_MOMENTARY_MODE
@@ -77,5 +79,6 @@
 #define USE_TINT_RAMPING
 // ... but it doesn't make sense to ramp between; only toggle
 #define TINT_RAMP_TOGGLE_ONLY
+#define TINT_RAMP_TOGGLE_TRIPLE
 
 #endif  // ifndef HANK_CFG

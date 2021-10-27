@@ -29,13 +29,22 @@ uint8_t tint_ramping_state(Event event, uint16_t arg) {
     if (event == EV_click3_hold) {
         // toggle once on first frame; ignore other frames
         if (! arg) {
+            #ifdef TINT_RAMP_TOGGLE_TRIPLE
+            if (tint < 127){
+                tint = 127;
+            }else if(tint < 255){
+                tint = 255;
+            }else{
+                tint = 0;
+            }
+            #else
             tint = !tint;
             set_level(actual_level);
             //blink_once();  // unnecessary, and kind of annoying on moon
+            #endif
         }
         return EVENT_HANDLED;
     }
-
     // click, click, hold, release: save config
     else if (event == EV_click3_hold_release) {
         // remember tint after battery change

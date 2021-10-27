@@ -376,6 +376,7 @@ uint8_t steady_state(Event event, uint16_t arg) {
     }
     #endif
 
+    #ifndef DISABLE_RAMP_STYLE_TOOGLE
     // 3 clicks: toggle smooth vs discrete ramping
     else if (event == EV_3clicks) {
         ramp_style = !ramp_style;
@@ -391,7 +392,7 @@ uint8_t steady_state(Event event, uint16_t arg) {
         #endif
         return MISCHIEF_MANAGED;
     }
-
+    #endif
     #ifndef USE_TINT_RAMPING
     // 3H: momentary turbo (on lights with no tint ramping)
     else if (event == EV_click3_hold) {
