@@ -70,6 +70,21 @@ uint8_t tint_ramping_state(Event event, uint16_t arg) {
 
     // click, click, hold: change the tint
     if (event == EV_click3_hold) {
+        ///// tint-toggle mode
+        // toggle once on first frame; ignore other frames
+        if (tint_style) {
+            // only respond on first frame
+            if (arg) return EVENT_NOT_HANDLED;
+
+            // force tint to be 1 or 254
+            if (tint != 254) { tint = 1; }
+            // invert between 1 and 254
+            tint = tint ^ 0xFF;
+            set_level(actual_level);
+            return EVENT_HANDLED;
+        }
+
+        ///// smooth tint-ramp mode
         // reset at beginning of movement
         if (! arg) {
             active = 1;  // first frame means this is for us
@@ -107,8 +122,8 @@ uint8_t tint_ramping_state(Event event, uint16_t arg) {
         active = 0;  // ignore next hold if it wasn't meant for us
         // reverse
         tint_ramp_direction = -tint_ramp_direction;
-        if (tint == 0) tint_ramp_direction = 1;
-        else if (tint == 255) tint_ramp_direction = -1;
+        if (tint <= 1) tint_ramp_direction = 1;
+        else if (tint >= 254) tint_ramp_direction = -1;
         // remember tint after battery change
         save_config();
         return EVENT_HANDLED;
