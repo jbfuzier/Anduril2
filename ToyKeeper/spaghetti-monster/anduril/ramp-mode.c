@@ -393,6 +393,7 @@ uint8_t steady_state(Event event, uint16_t arg) {
         return MISCHIEF_MANAGED;
     }
     #endif
+
     #ifndef USE_TINT_RAMPING
     // 3H: momentary turbo (on lights with no tint ramping)
     else if (event == EV_click3_hold) {
@@ -552,6 +553,7 @@ uint8_t ramp_extras_config_state(Event event, uint16_t arg) {
 #ifdef USE_GLOBALS_CONFIG
 void globals_config_save(uint8_t step, uint8_t value) {
     if (0) {}
+    #ifdef USE_TINT_RAMPING
     else if (step == 1+tint_style_config_step) {
         tint_style = !(!(value));
         // set tint to middle or edge depending on style being smooth or toggle
