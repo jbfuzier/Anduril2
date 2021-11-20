@@ -1,5 +1,6 @@
 // Emisar D4v2-noFET config options for Anduril
 #include "cfg-emisar-d4v2.h"
+#include "jb-notint-cfg.h"
 #undef MODEL_NUMBER
 #define MODEL_NUMBER "0115"
 // ATTINY: 1634

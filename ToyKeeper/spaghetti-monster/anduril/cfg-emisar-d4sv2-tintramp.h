@@ -1,7 +1,7 @@
 // Emisar D4S V2 tint-ramping config options for Anduril (based on Noctigon K9.3)
 #define MODEL_NUMBER "0135"
 #include "hwdef-Emisar_D4Sv2-tintramp.h"
-#include "hank-cfg.h"
+#include "jb-cfg.h"
 // ATTINY: 1634
 
 // this light has three aux LED channels: R, G, B
@@ -69,7 +69,7 @@
 #define CANDLE_AMPLITUDE 33
 
 // the power regulator is a bit slow, so push it harder for a quick response from off
-#define DEFAULT_JUMP_START_LEVEL 21
+#define DEFAULT_JUMP_START_LEVEL 1
 #define BLINK_BRIGHTNESS DEFAULT_LEVEL
 #define BLINK_ONCE_TIME 12  // longer blink, since main LEDs are slow
 

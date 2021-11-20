@@ -1,7 +1,7 @@
 // Emisar D4 config options for Anduril
 #define MODEL_NUMBER "0113"
 #include "hwdef-Emisar_D4v2.h"
-#include "hank-cfg.h"
+#include "jb-notint-cfg.h"
 // ATTINY: 1634
 
 // this light has three aux LED channels: R, G, B

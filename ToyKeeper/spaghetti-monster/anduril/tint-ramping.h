@@ -29,7 +29,10 @@ uint8_t tint_style = 0;
 #endif
 
 #ifdef USE_MANUAL_MEMORY
-uint8_t manual_memory_tint;
+#ifndef DEFAULT_MANUAL_MEMORY_TINT
+#define DEFAULT_MANUAL_MEMORY_TINT 0
+#endif
+uint8_t manual_memory_tint = DEFAULT_MANUAL_MEMORY_TINT;
 #endif
 
 // not actually a mode, more of a fallback under other modes

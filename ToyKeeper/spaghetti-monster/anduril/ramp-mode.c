@@ -557,7 +557,7 @@ void globals_config_save(uint8_t step, uint8_t value) {
     else if (step == 1+tint_style_config_step) {
         tint_style = !(!(value));
         // set tint to middle or edge depending on style being smooth or toggle
-        tint = tint_style ? 1 : 127;
+        //tint = tint_style ? 1 : 127;
     }
     #endif
     #ifdef USE_JUMP_START

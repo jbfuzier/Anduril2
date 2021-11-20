@@ -1,0 +1,1 @@
+avrdude -c usbasp -p t1634 -u -Uflash:w:/media/sf_Desktop/Anduril2/Github/Anduril2/ToyKeeper/spaghetti-monster/anduril/anduril.noctigon-kr4-tintramp.hex

@@ -26,12 +26,14 @@
 // actual_level: last ramp level set by set_level()
 uint8_t actual_level = 0;
 
-#ifdef USE_TINT_RAMPING
-#ifdef TINT_RAMP_TOGGLE_ONLY
-uint8_t tint = 0;
-#else
-uint8_t tint = 128;
+#ifndef TINT_DEFAULT
+#define TINT_DEFAULT 128
 #endif
+
+#ifdef USE_TINT_RAMPING
+
+uint8_t tint = TINT_DEFAULT;
+
 #define USE_TRIANGLE_WAVE
 #endif
 
@@ -42,7 +44,7 @@ inline void set_level_gradually(uint8_t lvl);
 void gradual_tick();
 #endif
 
-#if defined(USE_TINT_RAMPING) && (!defined(TINT_RAMP_TOGGLE_ONLY))
+#if defined(USE_TINT_RAMPING)
 void update_tint();
 #endif
 
